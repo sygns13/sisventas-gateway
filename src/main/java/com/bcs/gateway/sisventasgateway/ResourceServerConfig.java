@@ -49,7 +49,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
                 .authorizeRequests()
                 .antMatchers("/api/security/oauth/**").permitAll()
                 .antMatchers("/api/security/tokens/anular").permitAll()
-                .antMatchers("/api/backend/**").hasAnyAuthority("Super_Administrador")
+                .antMatchers("/api/backend/**").authenticated()
+                //.antMatchers("/api/backend/**").hasAnyAuthority("Super_Administrador")
                 //.anyRequest().authenticated()
                 .and().cors()
                 .configurationSource(configurationSource());
